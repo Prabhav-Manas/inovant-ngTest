@@ -2,31 +2,14 @@
   height: 100px;
 }
 
-/* .toggle-eye {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #6c757d;
-} */
-
-.btn-teal {
+.btnLogin {
   background-color: #009688;
   color: white;
   border: none;
 }
 
-.btn-teal:hover {
+.btnLogin:hover {
   background-color: #00796b;
-}
-
-.text-teal {
-  color: #009688;
-}
-
-.text-teal:hover {
-  text-decoration: underline;
 }
 
 :host {
@@ -43,11 +26,3 @@
 ::ng-deep ngx-loading {
   z-index: 9999;
 }
-
-/* .col-md-4 {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  backdrop-filter: blur(4px);
-} */

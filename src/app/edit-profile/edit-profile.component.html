@@ -1,5 +1,6 @@
 <div class="personal-info-section">
     <h5 class="fw-bold">PERSONAL INFORMATION</h5>
+
     <div class="d-flex my-3">
         <img src="../../assets/images/avatart-img.png" alt="Profile Image" class="rounded-circle me-3" width="60" style="width: 9%;">
         <div class="">
@@ -7,45 +8,92 @@
             <p class="">test@yopail.com</p>
         </div>
     </div>
-    <form action="">
+
+    <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <input type="text"class="form-control" placeholder="First Name" value="test">
+            <!-- First Name -->
+            <div class="col-md-6 mb-4 position-relative">
+                <input type="text"class="form-control" placeholder="First Name" value="test" formControlName="firstName" (keydown)="Space($event)" oninput="value=this.value.replace(/[^a-zA-Z\s{2,}\-]+/g, '')" [ngClass]="{'is-invalid':editProfileForm.controls?.['firstName']?.invalid && editProfileForm.controls?.['firstName']?.touched}">
+                <small *ngIf="editProfileForm.controls?.['firstName']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                    First name is required.
+                </small>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <input type="text"class="form-control" placeholder="Last Name" value="test">
+            <!-- Last Name -->
+            <div class="col-md-6 mb-4 position-relative">
+                <input type="text"class="form-control" placeholder="Last Name" value="test" formControlName="lastName" (keydown)="Space($event)" oninput="value=this.value.replace(/[^a-zA-Z\s{2,}\-]+/g, '')" [ngClass]="{'is-invalid':editProfileForm.controls?.['lastName']?.invalid && editProfileForm.controls?.['lastName']?.touched}">
+                <small *ngIf="editProfileForm.controls?.['lastName']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                    Last name is required.
+                </small>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <input type="email" class="form-control" placeholder="Email" value="test@yopmail.com">
+            <!-- Email -->
+            <div class="col-md-6 mb-4 position-relative">
+                <input type="email" class="form-control" placeholder="Email" value="test@yopmail.com" formControlName="email" (keydown)="Space($event)" [ngClass]="{'is-invalid': editProfileForm.controls?.['email']?.invalid && editProfileForm.controls?.['email']?.touched}">
+                <small *ngIf="editProfileForm.controls?.['email']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                    Email is required.
+                </small>
             </div>
 
-            <div class="col-md-6 mb-3 d-flex">
-                <select name="" id="" class="form-select w-25 me-2">
-                    <option value="">965</option>
+            <!-- Country Code & Phone -->
+            <div class="col-md-6 mb-4 d-flex position-relative">
+                <select name="" id="" class="form-select w-25 me-2" formControlName="countryCode" (keydown)="Space($event)" [ngClass]="{'is-invalid': editProfileForm.controls?.['countryCode']?.invalid && editProfileForm.controls?.['countryCode']?.touched}">
+                    <option value="" disabled selected hidden>965</option>
+                    <option value="965">965</option>
                 </select>
-
-                <input type="text" class="form-control" placeholder="Phone" value="98563214">
+                <!-- <small *ngIf="editProfileForm.controls?.['countryCode']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                    Country Code is required.
+                </small> -->
+                <div class="w-100">
+                    <input type="text" class="form-control" placeholder="Phone" value="98563214" formControlName="phone" (keydown)="Space($event)" oninput="this.value = this.value.replace(/[^0-9]/g, '')" [ngClass]="{'is-invalid':editProfileForm.controls?.['phone']?.invalid && editProfileForm.controls?.['phone']?.touched}">
+                    <small *ngIf="editProfileForm.controls?.['phone']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                        Phone is required.
+                    </small>
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-6 mb-3">
-                <input type="password" class="form-control" placeholder="Old Password">
+            <!-- Old Password -->
+            <div class="col-md-6 mb-4 position-relative">
+                <input type="{{hide}}" class="form-control" placeholder="Old Password" formControlName="oldPassword" (keydown)="Space($event)" [ngClass]="{'is-invalid':editProfileForm.controls?.['oldPassword']?.invalid && editProfileForm.controls?.['oldPassword']?.touched}">
+
+                <i class="fa fa-{{hide == 'password' ? 'eye-slash' : 'eye'}} position-absolute" style="top: 50%; right: 35px;; transform: translateY(-50%); cursor: pointer;" (click)="hide == 'password' ? (hide = 'text') : (hide = 'password')"></i>
+
+                <small *ngIf="editProfileForm.controls?.['oldPassword']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                    Old password is required.
+                </small>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <input type="password" class="form-control" placeholder="New Password">
+            <!-- New Password -->
+            <div class="col-md-6 mb-4 position-relative">
+                <input type="{{nePassHide}}" class="form-control" placeholder="New Password" formControlName="newPassword" (keydown)="Space($event)" [ngClass]="{'is-invalid':editProfileForm.controls?.['newPassword']?.invalid && editProfileForm.controls?.['newPassword']?.touched}">
+
+                <i class="fa fa-{{nePassHide == 'password' ? 'eye-slash' : 'eye'}} position-absolute" style="top: 50%; right: 35px; transform: translateY(-50%); cursor: pointer;" (click)="nePassHide == 'password' ? (nePassHide = 'text') : (nePassHide = 'password')"></i>
+
+                <small *ngIf="editProfileForm.controls?.['newPassword']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                    New Password is required.
+                </small>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <input type="password" class="form-control" placeholder="Confirm New Password">
+            <!-- Confirm New Password -->
+            <div class="col-md-6 mb-4 position-relative">
+                <input type="{{conNewPassHide}}" class="form-control" placeholder="Confirm New Password" formControlName="confirmNewPassword" (keydown)="Space($event)" [ngClass]="{'is-invalid':editProfileForm.controls?.['confirmNewPassword']?.invalid && editProfileForm.controls?.['confirmNewPassword']?.touched}">
+
+                <i class="fa fa-{{conNewPassHide == 'password' ? 'eye-slash' : 'eye'}} position-absolute" style="top: 50%; right: 35px; transform: translateY(-50%); cursor: pointer;" (click)="conNewPassHide == 'password' ? (conNewPassHide = 'text') : (conNewPassHide = 'password')"></i>
+
+                <small *ngIf="editProfileForm.controls?.['confirmNewPassword']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
+                    Confirm new password is required.
+                </small>
+
+                <small *ngIf="editProfileForm.controls?.['confirmNewPassword']?.errors?.['mismatch'] && editProfileForm.controls?.['confirmNewPassword']?.touched" class="invalid-feedback text-danger position-absolute">
+                    Passwords do not match.
+                </small>
             </div>
         </div>
 
-            <button class="btn btnSave w-100">Save</button>
+        <button class="btn btnSave w-100">Save</button>
     </form>
 </div>

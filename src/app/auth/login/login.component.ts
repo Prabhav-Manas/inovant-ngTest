@@ -24,6 +24,14 @@ export class LoginComponent implements OnInit{
     
   }
 
+  Space(event: any) {
+    console.log(event);
+    console.log(event.target.selectionStart);
+    if (event.code === 'Space' || event.key === ' ') {
+      event.preventDefault();
+    }
+  }
+
   onSubmit(){
     const {email, password}=this.loginForm.value;
 

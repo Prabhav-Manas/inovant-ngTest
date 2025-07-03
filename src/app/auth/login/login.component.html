@@ -1,6 +1,7 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
   <div class="col-md-4 col-sm-8 col-10 p-4 shadow rounded bg-white">
 
+    <!-- Ngx-Loader -->
     <ngx-loading [show]="loading" [config]="{
       backdropBorderRadius: '4px',
       primaryColour: '#009688',
@@ -15,31 +16,34 @@
     <h5 class="text-center mb-4">ENTER YOUR EMAIL TO CONTINUE</h5>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <input type="email" class="form-control" placeholder="Email" id="email" formControlName="email" [ngClass]="{'is-invalid':loginForm.controls?.['email']?.invalid && loginForm.controls?.['email']?.touched}">
-        <small *ngIf="loginForm.controls?.['email']?.errors?.['required']" class="invalid-feedback text-danger">
+      <!-- Email -->
+      <div class="mb-4 position-relative">
+        <input type="email" class="form-control" placeholder="Email" id="email" formControlName="email" (keydown)="Space($event)" [ngClass]="{'is-invalid':loginForm.controls?.['email']?.invalid && loginForm.controls?.['email']?.touched}">
+        <small *ngIf="loginForm.controls?.['email']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
             Email is required.
         </small>
       </div>
 
-      <div class="mb-3 position-relative">
-        <input type="{{hide}}" class="form-control" placeholder="Password" id="password" formControlName="password" [ngClass]="{'is-invalid':loginForm.controls?.['password']?.invalid && loginForm.controls?.['password']?.touched}">
-        <small *ngIf="loginForm.controls?.['password']?.errors?.['required']" class="invalid-feedback text-danger">
+      <!-- Password -->
+      <div class="mb-4 position-relative">
+        <input type="{{hide}}" class="form-control" placeholder="Password" id="password" formControlName="password" (keydown)="Space($event)" [ngClass]="{'is-invalid':loginForm.controls?.['password']?.invalid && loginForm.controls?.['password']?.touched}">
+        <small *ngIf="loginForm.controls?.['password']?.errors?.['required']" class="invalid-feedback text-danger position-absolute">
             Password is required.
         </small>
-        <!-- <i class="fa fa-eye-slash toggle-eye" (click)="password = !password"></i> -->
-         <i class="fa fa-{{hide == 'password' ? 'eye-slash' : 'eye'}} position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;" (click)="hide == 'password' ? (hide = 'text') : (hide = 'password')"></i>
+
+        <i class="fa fa-{{hide == 'password' ? 'eye-slash' : 'eye'}} position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;" (click)="hide == 'password' ? (hide = 'text') : (hide = 'password')"></i>
       </div>
 
+      <!-- Forgot Password -->
       <div class="d-flex justify-content-end mb-3">
         <a routerLink="" class="small">Forgot password?</a>
       </div>
 
-      <button type="submit" class="btn btn-teal w-100">Login</button>
+      <button type="submit" class="btn btnLogin w-100">Login</button>
     </form>
 
     <div class="text-center mt-3">
-      <small>Don't have an account? <a routerLink="" class="text-teal">Create Account</a></small>
+      <small>Don't have an account? <a routerLink="" class="">Create Account</a></small>
     </div>
   </div>
 </div>
