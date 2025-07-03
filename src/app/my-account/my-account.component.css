@@ -19,18 +19,10 @@
     font-size: 1.5rem;
 }
 
-/* .personal-info-section {
-  background: transparent;
-  box-shadow: none;
-  border: none;
-  padding: 1rem;
-} */
-
 .profile-card{
     margin-top: -50px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
-    /* max-width: 600px; */
     transform: translateY(-55%);
 }
 .list-group > a{
@@ -44,16 +36,6 @@
 .main-profile-container{
     margin-bottom: 10%;
 }
-
-/* @media(max-width:768px){
-    .account-header .d-flex{
-        flex-direction: column;
-        text-align: center;
-    }
-    .account-header.d-flex > div{
-        margin-bottom: 10px;
-    }
-} */
 
 .quick-links {
   display: inline-flex;
