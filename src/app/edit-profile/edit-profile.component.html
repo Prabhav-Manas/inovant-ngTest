@@ -2,12 +2,16 @@
     <h5 class="fw-bold">PERSONAL INFORMATION</h5>
 
     <div class="d-flex my-3">
-        <img src="../../assets/images/avatart-img.png" alt="Profile Image" class="rounded-circle me-3" width="60" style="width: 9%;">
-        <div class="">
+        <div class="position-relative d-inline-block">
+            <img src="../../assets/images/avatart-img.png" alt="Profile Image" class="rounded-circle me-3" width="100">
+            <i class="fa fa-camera camera-icon position-absolute" aria-hidden="true"></i>
+        </div>
+        <div>
             <h2 class="">Test Test</h2>
-            <p class="">test@yopail.com</p>
+            <p class="">test@yopmail.com</p>
         </div>
     </div>
+
 
     <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
         <div class="row">

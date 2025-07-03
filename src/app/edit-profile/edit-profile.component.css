@@ -2,3 +2,13 @@
     background-color: #008080;
     color: #fff;
 }
+.camera-icon {
+    bottom: 20px;
+    right: 32px;
+    transform: translate(50%, 50%);
+    background: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+

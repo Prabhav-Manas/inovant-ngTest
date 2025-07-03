@@ -65,3 +65,9 @@ hr {
   color: #fff;
   opacity: 0.6;
 }
+
+@media(max-width:768px){
+    .profile-card{
+      margin-top: -20px;
+    }
+}
