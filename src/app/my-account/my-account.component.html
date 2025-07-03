@@ -21,6 +21,7 @@
 </div>
 
 <div class="container mt-4 main-profile-container">
+    <!-- Profile Card -->
     <div class="profile-card card p-3 mb-3 mx-auto">
         <div class="d-flex align-items-center">
             <img src="../../assets/images/avatart-img.png" alt="Profile Image" class="rounded-circle me-3" width="60">
@@ -32,6 +33,7 @@
         </div>
     </div>
 
+    <!-- Sidebar -->
     <div class="row">
         <div class="col-md-3 mb-3">
             <div class="list-group">
@@ -43,51 +45,55 @@
             </div>
         </div>
 
+        <!-- Main Section -->
         <div class="col-md-9 main-section">
-            <!-- <app-edit-profile></app-edit-profile> -->
              <router-outlet></router-outlet>
         </div>
     </div>
 </div>
 
+<!-- Footer -->
 <footer class="footer text-white pt-4">
   <div class="container">
 
-    <!-- Top Quick Links -->
+    <!-- Quick Links -->
     <div class="text-center mb-3">
-    <h6 class="fw-bold mb-2">Quick links</h6>
-    <div class="quick-links">
-        <a href="#" class="footer-link">Press</a>
-        <span class="divider">|</span>
-        <a href="#" class="footer-link">FAQS</a>
-        <span class="divider">|</span>
-        <a href="#" class="footer-link">Contact us</a>
-        <span class="divider">|</span>
-        <a href="#" class="footer-link">About us</a>
-        <span class="divider">|</span>
-        <a href="#" class="footer-link">Join the team</a>
-        <span class="divider">|</span>
-        <a href="#" class="footer-link">Terms & conditions</a>
+    <h3 class="fw-bold mb-2">Quick links</h3>
+        <div class="quick-links d-flex flex-wrap justify-content-center">
+        <div class="m-2" style="min-width: 120px; text-align: end;">
+            <a routerLink="" class="footer-link d-block">Press</a>
+            <a routerLink="" class="footer-link d-block">Contact us</a>
+            <a routerLink="" class="footer-link d-block">Join the team</a>
+        </div>
+        <div class="m-2" style="min-width: 120px; text-align: start;">
+            <a routerLink="" class="footer-link d-block">FAQS</a>
+            <a routerLink="" class="footer-link d-block">About us</a>
+            <a routerLink="" class="footer-link d-block">Terms & conditions</a>
+        </div>
+        </div>
     </div>
-    </div>
-
 
     <!-- Divider -->
     <hr class="border-light">
 
     <!-- Bottom row -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
-      <div class="text-md-start text-center mb-2 mb-md-0">
-        <strong>PRIVACY POLICY</strong><br>
-        Copyright © 2024 K-Land.<br>All Rights Reserved.
+      <div class="text-md-center text-center mb-2 mb-md-0">
+        <strong class="mt-3">PRIVACY POLICY</strong><br>
+        <p class="mt-3">Copyright © 2024 K-Land.<br>All Rights Reserved.</p>
       </div>
       <div class="text-center mb-2 mb-md-0">
-        FOLLOW US <i class="fa fa-instagram" aria-hidden="true"></i>
+        <div class="d-block">
+            <span>FOLLOW US</span><br>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </div>
       </div>
       <div class="text-md-end text-center">
-        PRESENTED BY <img src="../../assets/images/KLand-img-2.png" alt="K-Land Logo" style="max-height:30px;">
+        <div class="">
+            <strong>PRESENTED BY</strong><br>
+            <img src="../../assets/images/KLand-img-2.png" alt="K-Land Logo" style="max-height:80px;">
+        </div>
       </div>
     </div>
-
   </div>
 </footer>

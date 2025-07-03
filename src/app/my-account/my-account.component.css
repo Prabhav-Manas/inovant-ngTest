@@ -13,9 +13,10 @@
     font-family: 'serif';
     font-style: italic;
     letter-spacing: 1px;
+    font-size: 3.5rem !important;
 }
 .account-header p{
-    font-size: 0.9rem;
+    font-size: 1.5rem;
 }
 
 /* .personal-info-section {
@@ -67,6 +68,7 @@
 .footer-link {
   color: #fff;
   text-decoration: none;
+  margin-bottom: 0.25rem;
 }
 
 .footer-link:hover {
