@@ -1,0 +1,83 @@
+.account-header{
+    background: #008080;
+    padding-top: 7% !important;
+    padding-bottom: 7% !important;
+}
+.logo{
+    max-width: 100px;
+}
+.list-group-item{
+    cursor:pointer;
+}
+.account-header h2{
+    font-family: 'serif';
+    font-style: italic;
+    letter-spacing: 1px;
+}
+.account-header p{
+    font-size: 0.9rem;
+}
+
+/* .personal-info-section {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 1rem;
+} */
+
+.profile-card{
+    margin-top: -50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    /* max-width: 600px; */
+    transform: translateY(-55%);
+}
+.list-group > a{
+    color: #aaa;
+}
+.active-link{
+  color: #008080 !important;
+  font-weight: bold;
+}
+
+.main-profile-container{
+    margin-bottom: 10%;
+}
+
+/* @media(max-width:768px){
+    .account-header .d-flex{
+        flex-direction: column;
+        text-align: center;
+    }
+    .account-header.d-flex > div{
+        margin-bottom: 10px;
+    }
+} */
+
+.quick-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer {
+  background: #008080;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+hr {
+  opacity: 0.5;
+}
+
+.divider {
+  color: #fff;
+  opacity: 0.6;
+}
