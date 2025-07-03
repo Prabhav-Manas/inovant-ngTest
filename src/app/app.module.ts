@@ -10,7 +10,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { NgxLoadingModule } from 'ngx-loading';
 
@@ -22,7 +21,6 @@ import { NgxLoadingModule } from 'ngx-loading';
     EditProfileComponent,
     FaqsComponent,
     ContactUsComponent,
-    SignupComponent
   ],
   imports: [
     BrowserModule,
